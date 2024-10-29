@@ -1,32 +1,35 @@
-// Puedes revisar mas estricto
-
+/* eslint-disable */
 import "bootstrap";
 import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-const excuse = document.querySelector("#excuse");
 window.onload = function() {
-  excuse.innerHTML = `${getValue(who)} ${getValue(action)} ${getValue(
-    what
-  )} ${getValue(when)}`;
+  let who = ["The dog", "My grandma", "His turtle", "My bird"];
+  let action = ["ate", "peed", "crushed", "broke"];
+  let what = ["my homework", "the keys", "the car"];
+  let when = [
+    "before the class",
+    "right on time",
+    "when I finished",
+    "during my lunch",
+    "while I was praying"
+  ];
+
+  let whoRandom = Math.floor(Math.random() * who.length);
+  let actionRandom = Math.floor(Math.random() * action.length);
+  let whatRandom = Math.floor(Math.random() * what.length);
+  let whenRandom = Math.floor(Math.random() * when.length);
+
+  let excuse =
+    who[whoRandom] +
+    " " +
+    action[actionRandom] +
+    " " +
+    what[whatRandom] +
+    " " +
+    when[whenRandom];
+
+  document.getElementById("excuse").innerText = excuse;
 };
-
-const who = ["A dog", "A cat", "A horse", "My neighbour", "My boss"];
-const action = ["ate", "bit", "burnt", "took", "threw"];
-const what = ["my leg", "my book", "my car", "my keys", "my kids", "my money"];
-const when = [
-  "during my studies",
-  "while I was eating",
-  "when driving a car",
-  "while having a beer"
-];
-
-const getRandom = array => Math.floor(Math.random() * array.length);
-const getValue = array => array[getRandom(array)];
-
-console.log(getRandom(who));
-console.log(getRandom(action));
-console.log(getRandom(what));
-console.log(getRandom(when));
